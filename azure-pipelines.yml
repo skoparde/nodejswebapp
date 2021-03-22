@@ -14,9 +14,6 @@ steps:
   displayName: 'Run a one-line script'
 
 - script: |
-  install npm
-  npm run build
-  npm test
   displayName: 'Run a multi-line script'
 
 - task: Npm@1
