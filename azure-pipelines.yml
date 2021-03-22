@@ -12,7 +12,17 @@ pool:
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
-
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'PayAsYouGo(9308a00c-d30f-4bce-a36b-41304d40d2b6)'
+    appType: 'webAppLinux'
+    WebAppName: 'ASP-queueprocessing-bc9b (F1: Free)'
+    deployToSlotOrASE: true
+    ResourceGroupName: 'queueprocessing'
+    SlotName: 'production'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    RuntimeStack: 'NODE|12-lts'
 - script: |
   displayName: 'Run a multi-line script'
 
